@@ -1,0 +1,17 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=video-x-generic
+Type=Service
+ServiceTypes=KPluginInfo
+
+Name=AVI chunks
+Comment=Definitions of basic data chunks that AVI files are composed of and a few example structures built out of them.
+
+X-KDE-PluginInfo-Author=Kamil Śliwak
+X-KDE-PluginInfo-Email=cameel2/at/gmail/com
+X-KDE-PluginInfo-Name=avi-chunks
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=https://github.com/cameel/okteta-structure-avi
+X-KDE-PluginInfo-Category=structure/js
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=false

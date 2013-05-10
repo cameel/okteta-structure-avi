@@ -1,0 +1,4 @@
+# Vim's temporary files
+*.swp
+*.swo
+*.swn

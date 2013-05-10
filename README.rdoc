@@ -1,0 +1,31 @@
+= AVI chunks for Okteta
+An extension for {Okteta hex editor}[http://www.kde.org/applications/utilities/okteta/] that provides definitions of basic data chunks that an AVI file is composed of.
+
+== Installation
+Put +avi.desktop+ and +main.js+ into:
+    $(kde4-config --localprefix)share/apps/okteta/structures/avi-chunks/
+On my system it's +~/.kde4/share/apps/okteta/structures/avi-chunks/+. You'll have to create at least the +avi-chunks/+ part.
+
+== Status
+As it's not really possible to make this extension easy to use at this point, certain level of knowledge of both AVI file structure and Okteta structure syntax is assumed. The extension is also quite incomplete. I have included only as much of the specification as I really needed for my own files. Even if your file is very typical you may need to modify the code to suit your needs.
+
+Missing features will be added only when needed so don't hesitate to {file an issue}[https://github.com/cameel/okteta-structure-avi/issues/new] in the bug tracker if you need something specific.
+
+== Usage
+Make sure that the _Structures_ tool is enabled in the _Tools_ menu. Inside the tool use the _Settings_ button and in the dialog go to <em>Structures management</em> and check <em>AVI chunks</em> structure.
+
+Now you should see the _avi-chunks_ tree inside the tool. The structure of an AVI file is not entirely static - some chunks are optional and some can have a variable number of children of non-uniform structure - and therefore the tree does not represent a single file layout. Instead it's an union of two subtrees which in turn are unions of supported layouts. The first subtree (<tt>Basic structures</tt>) represents the basic building blocks that you can find manually (it's usually easy - just search for the fourCC) and then inspect by selecting the starting byte in the editor. The second subtree (<tt>Example file layouts</tt>) is exactly what the name says - a collection of several file structures built from the basic elements. The selection is not yet very comprehensive.
+
+If you want to create a new layout see +genericAVI()+ function and +BIT_TYPES+ local variable in +main.js+.
+
+== Limitations and known problems
+* Okteta limits array size to 10000 elements and therefore the idx1 chunk gets placed incorrectly in all but the tiniest of AVI files.
+
+== More information
+* {AVI File Format}[http://www.alexander-noe.com/video/documentation/avi.pdf] - a great reference including information about how it's (mis)used in real-life applications.
+* {OpenDML AVI File Format Extensions Version 1.02}[http://www.the-labs.com/Video/odmlff2-avidef.pdf]
+* {Okteta structure syntax}[http://docs.kde.org/stable/en/kdesdk/okteta/tools-structures.html]
+* {Okteta structure examples}[https://projects.kde.org/projects/kde/kdesdk/okteta/repository/revisions/master/show/kasten/controllers/view/structures/examples/okteta/structures]
+
+== License
+Copyright (c) Kamil Śliwak, released under the LGPL license.
